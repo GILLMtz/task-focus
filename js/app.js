@@ -5,11 +5,10 @@ import utils from "./utils.js";
 export default class App{
    
     static  init ( ) {
-
-        utils.setSystemTheme();
-        
+        utils.setConfig();
         render.addExampleTasks();
         events();
+        
     }
  
     

@@ -32,8 +32,8 @@ export default function events(){
             return;
         }
         if(target.parentNode&&target.parentNode.classList.contains('tasks-section__btn')){
-            
             taskSectionElement.classList.toggle('up-section');
+            utils.setBtnUpTasksSection();
             return;
         }
     });
