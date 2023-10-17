@@ -56,7 +56,7 @@ function getNameByState(state) {
 
 function getBadge(task) {
     let { state, icon } = getStateIcon(task.state);
-    return `<strong class="task-badge">${icon} ${getNameByState(state)} </strong>`;
+    return `<strong class="badge">${icon} ${getNameByState(state)} </strong>`;
 }
 
 function createHtmlTask(task) {

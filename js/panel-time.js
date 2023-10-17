@@ -1,4 +1,4 @@
-import { timePanelTaskName, STEP, timePanel} from "./constantes.js";
+import { timePanelProcessName, STEP, timePanel} from "./constantes.js";
  import stateHandler from "./state-handler.js";
 
 
@@ -8,7 +8,7 @@ function getTime() {
     seconds = seconds[0] == '0' ? seconds[1] : seconds;
     return { minutes, seconds };
 }
-function updateName(name) { timePanelTaskName.innerText = name; }
+function updateName(name) { timePanelProcessName.innerText = name; }
 
 function updateTime(minutes, seconds) {
     timePanel.innerHTML = `${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}`;

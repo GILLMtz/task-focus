@@ -22,7 +22,7 @@ export default function events(){
             actions.remove(event);
             return;
         }
-        if (target.classList.contains('task-panel-time__button-pause')) {
+        if (target.classList.contains('panel-time__button-pause')) {
             actions.pause();
             return;
         }    
