@@ -63,7 +63,7 @@ function createHtmlTask(task) {
     let badge = getBadge(task);
     let styleClass = `task-${getNameByState(task.state)}`;
 
-    return `<li data-id=${task.id}  class="${styleClass}">
+    return `<li data-id=${task.id}  class="${styleClass} task-card">
      ${badge}
     <span>${task.name} ${task.time.minutes}:${task.time.seconds}  </span> 
     <div>
