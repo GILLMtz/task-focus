@@ -1,5 +1,6 @@
 import { bodyElement ,btnSetStateTasksSection,btnSetTheme,taskSectionElement,Themes, titlePage,PAGE_TITLE} from "./constantes.js";
 import stateHandler from "./state-handler.js";
+import panelTime from "./panel-time.js";
  
 const BtnTasksSection={
     DOWN:{icon:`<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16">
@@ -10,6 +11,15 @@ const BtnTasksSection={
   </svg>`,title:"Tasks"}
 
 };
+
+const BtnAction={
+    START:{icon:`<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">`
+,title:"Start"},
+    PAUSE:{icon:`<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pause" viewBox="0 0 16 16">`
+    ,  title:"Pause"},
+    DELETE:{icon:`<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">`
+    ,  title:"Delete"}
+}
 
 
 function isTheme(theme){
@@ -86,6 +96,28 @@ function setConfig(){
     setTitle(PAGE_TITLE);
     setSystemTheme();
     setBtnUpTasksSection();
+    panelTime.updateProcess(null,false);
 }
 
-export default {setTheme, setTitle,removeTheme,getSystemTheme,switchBtnTheme,setSystemTheme,setBtnUpTasksSection,setConfig};
+function switchBtnStartPause(target,action="start"){
+    console.log("Element to change",target);
+    if(action=="start"){
+        target.classList.remove('btn-task-timer');
+        target.classList.add('btn-task-pause');
+
+        const deleteNode= [...target.childNodes].filter((node)=>node.tagName=="svg")[0];
+        console.log("deleteNode !!",deleteNode)
+        console.log(target.childNodes );
+
+        target.removeChild(deleteNode);
+        
+        console.log(target.childNodes);
+        //target.childNodes[1].innerHTML=BtnAction.PAUSE.icon;
+        return ;
+    }
+    target.classList.remove('btn-task-pause');
+    target.classList.add('btn-task-timer');
+ 
+}
+
+export default {setTheme, setTitle,removeTheme,getSystemTheme,switchBtnTheme,setSystemTheme,setBtnUpTasksSection,setConfig,switchBtnStartPause};

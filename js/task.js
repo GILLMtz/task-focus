@@ -15,6 +15,10 @@ function create(name) {
     return { id: createId(), name: name, state: TaskStates.PENDING, pomodoro: 1, time: DEFAULT_TASK_TIME}
 }
 
+function createTask(name,state,time){
+    return { id: createId(), name: name, state: TaskStates.PENDING, pomodoro: 1, time: DEFAULT_TASK_TIME}
+
+}
 
 function updateTime(minutes,seconds,id){
     let task= tasks.find((task)=>task.id==id);
@@ -43,4 +47,4 @@ function next(){
 function empty(){
     return !tasks.length;
 }
-export default {setState,get,create,updateTime,addedTask,add,removeById,next,empty};
+export default {setState,get,create,updateTime,addedTask,add,removeById,next,empty, createTask};

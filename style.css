@@ -39,6 +39,8 @@
     --height__after-app: 60%;
     --width__after-app: 50%;
 
+    --transition__app: all 0.5s ease;
+
     /* Themes */
     --background__app-theme-dark-mode: linear-gradient(to right, #14021e, #190926, #1e0e2f, #241138, #2b1441, #311341, #371240, #3c103f, #3e0c34, #3d092a, #3a0921, #360a19);
     --background__app-theme-light-mode: #e3e3e3;
@@ -46,22 +48,22 @@
     --background-image__app-sub-theme-break-time: none;
     --font-color__app-sub-theme-break-time: inherit;
     --background-image__after-app-sub-theme-break-time: none;
-    --background__app-sub-theme-break-time:none;
+    --background__app-sub-theme-break-time: none;
 
     /** Btn Set Theme */
- --background__btn-set-theme-light-mode:var(--color-gray-1);
---font-color__btn-set-theme-light-mode: var(--color-purple-3);
---background-image__btn-set-theme-light-mode:none;
---background__btn-set-theme-dark-mode:none;
---background-image__btn-set-theme-dark-mode:var(--background__app-theme-dark-mode);
---font-color__btn-set-theme-dark-mode:var(--color-gray-1); 
+    --background__btn-set-theme-light-mode: var(--color-gray-1);
+    --font-color__btn-set-theme-light-mode: var(--color-purple-3);
+    --background-image__btn-set-theme-light-mode: none;
+    --background__btn-set-theme-dark-mode: none;
+    --background-image__btn-set-theme-dark-mode: var(--background__app-theme-dark-mode);
+    --font-color__btn-set-theme-dark-mode: var(--color-gray-1);
     /* Task Section */
 
     --transition__tasks-section: height 0.5s ease;
     --trasition__tasks-section-btn: border-radius 0.5s ease;
-    --background__tasks-section-content: #121212;
-
-    --background__tasks-section-btn: #121212;
+    /*     --background__tasks-section-content: #121212; */
+    --background__tasks-section: none;
+    --background__tasks-section-btn: none;
 
 
     /* Task Form */
@@ -71,13 +73,13 @@
     --background__task-list--empty: #451a010f;
     --background__task-list--empty-icon: var(--color-wheat);
     --background__task-list-item: #f2f3f747;
-    --box-shadow__task-list-item:  6px 9px 5px #b9b6cb3d;
+    --box-shadow__task-list-item: 6px 9px 5px #b9b6cb3d;
 
     /* Panel Time */
     --background__panel-time: #f2f3f747;
     --box-shadow__panel-time: 0px 1px 7px #dadada3d;
     --font-color__panel-time: inherit;
-   
+
 
     /* Badge */
     --font-color__badge: var(--color-blue-1);
@@ -99,7 +101,7 @@
     background-size: 1rem 1rem;
 }
 
-svg {
+* svg {
     pointer-events: none;
 }
 
@@ -142,12 +144,23 @@ body::after {
     border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
 }
 
-@media screen and (max-width:576px) {
+@media screen and (max-width:950px) {
+    html {
+        min-height: 100vh;
+        height: auto;
+    }
+
     body {
         display: block;
     }
 }
 
+/* @media screen and (max-width:576px) {
+    body {
+        display: block;
+    }
+}
+ */
 /*--------------
 Themes
 --------------*/
@@ -163,12 +176,15 @@ Themes
     --background-image__app-sub-theme-break-time: linear-gradient(to right bottom, #14021e, #190926, #1e0e2f, #241138, #2b1441, #282152, #1e2d62, #003a72, #004f7f, #006176, #006f5d, #2a7a3e);
     ;
     --background-image__after-app-sub-theme-break-time: none;
-    --font-color__app-sub-theme-break-time:var(--color-wheat);
-    
+    --font-color__app-sub-theme-break-time: var(--color-wheat);
+
+    /* Task Section */
+    --background__tasks-section: #121212;
+    --background__tasks-section-btn: none;
 
     /* Panel Time */
     --background__panel-time: #f2f3f70a;
-    --box-shadow__panel-time:0px 9px 8px #0000003d;
+    --box-shadow__panel-time: 0px 9px 8px #0000003d;
 
     /* Task Form */
     --border-bottom__task-form-add: 1px solid var(--color-wheat);
@@ -178,54 +194,61 @@ Themes
     --background__task-list--empty: #f7f2f203;
     --background__task-list--empty-icon: var(--color-wheat);
     --background__task-list-item: var(--background__panel-time);
-    --box-shadow__task-list-item:0px 9px 8px #0000003d;
+    --box-shadow__task-list-item: 0px 9px 8px #0000003d;
 
-        /* Badge */
-        --font-color__badge: var(--color-blue-1);
-        --background__badge: none;
-    
+    /* Badge */
+    --font-color__badge: var(--color-blue-1);
+    --background__badge: none;
+
 }
+
 .theme-dark-mode.sub-theme-break-time {
     /** Btn Set Theme */
-    --background__btn-set-theme-light-mode:var(--color-gray-1);
-    --font-color__btn-set-theme-light-mode: cadetblue;;
+    --background__btn-set-theme-light-mode: var(--color-gray-1);
+    --font-color__btn-set-theme-light-mode: cadetblue;
+    ;
 }
 
 /* Light Mode */
 .theme-light-mode {
     /* App */
-    --background__app:var(--background__app-theme-light-mode) ;
-/*     --background-image__app:linear-gradient(135deg, rgb(187, 167, 255) 0%, rgb(208, 47, 47) 100%); */
-/* --background-image__app:linear-gradient(135deg, rgb(187, 167, 255) 0%,rgb(205, 107, 175) 20%,  rgb(208, 47, 47) 80%);
---background-image__app:linear-gradient(-45deg, rgb(124, 90, 237) 0%,rgb(69, 41, 165) 20%, rgb(208, 47, 47) 100%) ; */    
---background-image__after-app:none;
+    --background__app: var(--background__app-theme-light-mode);
+    /*     --background-image__app:linear-gradient(135deg, rgb(187, 167, 255) 0%, rgb(208, 47, 47) 100%); */
+    /* --background-image__app:linear-gradient(135deg, rgb(187, 167, 255) 0%,rgb(205, 107, 175) 20%,  rgb(208, 47, 47) 80%);
+--background-image__app:linear-gradient(-45deg, rgb(124, 90, 237) 0%,rgb(69, 41, 165) 20%, rgb(208, 47, 47) 100%) ; */
+    --background-image__after-app: none;
     --font-color__app: #6f6d6d;
     /* Themes */
-/*     --background-image__app-sub-theme-break-time: linear-gradient(to right bottom, #051937, #004d7a, #008793, #00bf72, #a8eb12);
-  */  
-  --background-image__app-sub-theme-break-time:none;
-    --background__app-sub-theme-break-time:#2fb1a575;
+    /*     --background-image__app-sub-theme-break-time: linear-gradient(to right bottom, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+  */
+    --background-image__app-sub-theme-break-time: none;
+    --background__app-sub-theme-break-time: #2fb1a575;
     --background-image__after-app-sub-theme-break-time: none;
-    --font-color__app-sub-theme-break-time:cadetblue;
+    --font-color__app-sub-theme-break-time: cadetblue;
 
-        /* Panel Time */
-        --background__panel-time: #f2f3f730;
-        --box-shadow__panel-time:6px 9px 5px #b9b6cb3d;
+    /* Panel Time */
+    --background__panel-time: #f2f3f730;
+    --box-shadow__panel-time: 6px 9px 5px #b9b6cb3d;
 
 
-        /* Task List */
-        --background__task-list--empty: #bebebe0d;
-        --background__task-list--empty-icon: #6f6d6d;
-        --background__task-list-item: var(--background__panel-time);
+    /* Task Section */
+    --background__tasks-section: var(--background__app);
+    --background__tasks-section-btn: none;
+
+
+    /* Task List */
+    --background__task-list--empty: #bebebe0d;
+    --background__task-list--empty-icon: #6f6d6d;
+    --background__task-list-item: var(--background__panel-time);
 
 
 }
 
-.theme-light-mode.sub-theme-break-time{
+.theme-light-mode.sub-theme-break-time {
     /** Btn Set Theme */
-    --background__btn-set-theme-dark-mode:cadetblue;
-    --background-image__btn-set-theme-dark-mode:none;
-    --font-color__btn-set-theme-dark-mode:var(--color-gray-1); 
+    --background__btn-set-theme-dark-mode: cadetblue;
+    --background-image__btn-set-theme-dark-mode: none;
+    --font-color__btn-set-theme-dark-mode: var(--color-gray-1);
 }
 
 /*--------------
@@ -246,15 +269,8 @@ Themes: Sub Themes
  */
     --background-image__after-app: var(--background-image__after-app-sub-theme-break-time);
     --height__after-app: 70%;
-
-  
-
-
-
-
-
     /* Panel Time */
-  /*   --background__panel-time: #f2f3f733;
+    /*   --background__panel-time: #f2f3f733;
     --box-shadow__panel-time: 0px 1px 7px #dadada0a; */
 }
 
@@ -324,28 +340,29 @@ header {
 
 @media screen and (max-width:950px) {
     .container {
-        grid-template-columns: 1fr;
+        /*         grid-template-columns: 1fr;
         grid-template-rows: auto auto auto;
         gap: 0% 0px;
-        padding: 0px 10%;
+        padding: 0px 10%; */
+        display: block;
     }
 
-    header {
+    /*     header {
         grid-column: 1 /1;
         grid-row: 1 / 2;
-    }
+    } */
 
     .panel-time {
-        grid-column: 1 / 1;
-        grid-row: 2 / 3;
+        /*         grid-column: 1 / 1;
+        grid-row: 2 / 3; */
         padding: 5%;
         width: 60%;
         margin: auto;
     }
 
     .tasks-section {
-        grid-column: 1/ 1;
-        grid-row: 3/ 4;
+        /*         grid-column: 1/ 1;
+        grid-row: 3/ 4; */
         margin-top: 5%;
 
     }
@@ -397,7 +414,7 @@ header {
 
 .btn-set-theme.btn-set-theme--dark {
     background: var(--background__btn-set-theme-dark-mode);
-    background-image:var(--background-image__btn-set-theme-dark-mode) ;
+    background-image: var(--background-image__btn-set-theme-dark-mode);
     color: var(--font-color__btn-set-theme-dark-mode);
 }
 
@@ -406,9 +423,24 @@ header {
 /*--------------
 Task Section 
 --------------*/
+.tasks-section {
+    background: none;
+}
+
+.tasks-section::after {
+    position: absolute;
+    content: "";
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    background: var(--background__tasks-section);
+    background-image: var(--background-image__app);
+    display: none;
+}
 
 .tasks-section__btn {
     display: none;
+    background: var(--background__tasks-section-btn);
 }
 
 /* Form  */
@@ -484,44 +516,78 @@ Task Section
 }
 
 .tasks-list li {
-  
+
     padding:
-    1em 1em 0px 1em;
+        1em 1em 0px 1em;
     border-radius: 5px;
     background: var(--background__task-list-item);
- /*   box-shadow: 0px -3px 7px #b9b6cb3d; */
+    /*   box-shadow: 0px -3px 7px #b9b6cb3d; */
     min-height: 100px;
     transition: box-shadow 0.8s ease;
 }
-.tasks-list li:hover{
+
+.tasks-list li:hover {
     box-shadow: var(--box-shadow__panel-time);
     transition: box-shadow 0.8s ease;
 }
 
-.task-card{
+.task-card {
     display: grid;
-    grid-template-areas: "title title"
-    "status controls";
-    grid-template-columns: 70% 30%;
+/*     grid-template-areas: "title title"
+        "status controls"; */
+    grid-template-areas: "title title title" 
+   "time . ."
+    "status . controls";     
+    grid-template-columns: 1fr 1fr 1fr;
+/*     grid-auto-rows: 40px; */
 }
-.task-card span{
+
+.task-card .task-card__title {
     grid-area: title;
-  align-self: center;
-  font-weight: 600;
-  padding-left: 4%;
+    align-self: center;
+    font-weight: 600;
+    
 }
-.task-card strong{
+
+
+.task-card .task-card__time {
+    grid-area: time;
+}
+.task-card span.badge {
     grid-area: status;
     justify-self: self-start;
     align-self: center;
 }
 
-.task-card div{
+.task-card div {
     grid-area: controls;
-    justify-self: self-end;
     align-self: center;
+    display: flex;
+    gap: 5%;
+    justify-content: flex-end;
 }
 
+.task-card div button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 15px;
+}
+
+body:not(.up-tasks-section) .task-card--current{
+    border-left: 4px solid #8b70a5;
+    padding: 2%;
+    border-radius: 5px 0px 0px 0px;
+
+}
+
+body:not(.up-tasks-section) .task-card--current-no-active{
+opacity: 0.2;
+}
+
+body:not(.up-tasks-section) .task-card.task-card--current-no-active div button{
+    pointer-events: none;
+    }
 
 @media screen and (max-width:950px) {
     .tasks-section .tasks-list {
@@ -535,7 +601,7 @@ Task Section
         bottom: 0px;
         left: 0px;
         z-index: 1;
-        height: 8vh;
+        height: 16vh;
         width: 100%;
         overflow: hidden;
         box-sizing: border-box;
@@ -546,15 +612,28 @@ Task Section
         transition: var(--transition__tasks-section);
     }
 
+    .tasks-section::after {
+        display: block;
+    }
+
     .tasks-section {
         margin-top: 0px;
         padding-top: 0px;
     }
 
     .tasks-section.up-section {
-        height: 50vh;
+        height: 67vh;
         transition: var(--transition__tasks-section);
     }
+
+    .tasks-section .tasks-form {
+        display: none;
+    }
+
+    .tasks-section.up-section .tasks-form {
+        display: flex;
+    }
+
 
     .tasks-section .tasks-list {
         margin: 0px;
@@ -588,6 +667,8 @@ Task Section
         transition: var(--trasition__tasks-section-btn);
     }
 
+
+
     .tasks-section:not(.up-section) .tasks-section__btn button {
         border-radius: 40% 40% 0px 0px;
     }
@@ -607,6 +688,69 @@ Task Section
 
 
 
+    body .title {
+        transition: var(--transition__app);
+    }
+
+    body.up-tasks-section .title {
+        font-size: 7.609vw;
+        transition: var(--transition__app);
+        margin: 0.4em;
+    }
+
+
+
+
+    body.up-tasks-section .panel-time {
+        height: 120px;
+        padding: 10px 20px 10px 20px;
+        display: flex;
+        width: 90%;
+        justify-content: space-between;
+        align-items: center;
+        flex-flow: row-reverse;
+        transition: var(--transition__app);
+        gap: 30px;
+    }
+
+    body.up-tasks-section .panel-time .panel-time__value {
+        font-size: 2.5em;
+    }
+
+    body.up-tasks-section .panel-time div button span {
+        display: none;
+    }
+
+    body.up-tasks-section .panel-time div button {
+        border-radius: 50%;
+        padding: 0px;
+        height: 3em;
+        width: 3em;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    body.up-tasks-section .panel-time div button svg {
+        height: 1.6em;
+        width: 1.6em;
+    }
+
+    
+    body:not(.up-tasks-section) .panel-time {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+       
+    }
+    body:not(.up-tasks-section) .panel-time div.task-card{
+        border-left: 4px solid #8b70a5;
+        padding: 2%;
+        border-radius: 5px 0px 0px 0px;
+    }
+    body:not(.up-tasks-section) .panel-time div.task-card  strong.badge span{
+        font-size: 3.9vw;
+    }
 
 }
 
@@ -622,6 +766,7 @@ Components
     padding: 10% 5%;
     background: var(--background__panel-time);
     color: var(--font-color__panel-time);
+    transition: var(--transition__app);
 }
 
 .panel-time h2 {
@@ -643,6 +788,8 @@ Components
     margin: 2%;
 }
 
+
+
 @media screen and (max-width:768px) {
     .panel-time {
         width: 80%;
@@ -656,7 +803,8 @@ Components
 
 @media screen and (max-width:576px) {
     .panel-time {
-        height: 60vh;
+        height: 50vh;
+
     }
 }
 
@@ -679,18 +827,19 @@ Components
     margin-right: 4%;
 }
 
-.task-starting strong {
+.task-starting  strong, .task-starting span.badge {
     color: var(--color-pink-1);
 }
 
-.task-pending strong {
+.task-pending  strong, .task-pending span.badge {
     color: var(--color-orange);
 }
 
-.task-successful strong {
+.task-successful  strong, .task-successful span.badge {
     color: var(--color-green);
 }
-.task-resume strong {
+
+.task-resume   strong, .task-resume  span.badge {
     color: var(--font-color__badge);
 }
 
@@ -715,15 +864,15 @@ Components
 }
 
 
- .btn--danger:not([disabled]) {
+.btn--danger:not([disabled]) {
     background: var(--color-red-1);
 }
 
- .btn--danger:hover:not([disabled]) {
+.btn--danger:hover:not([disabled]) {
     box-shadow: 1px 0px 4px var(--color-red-2);
 }
 
- .btn--danger:active:not([disabled]) {
+.btn--danger:active:not([disabled]) {
     background: var(--color-red-3);
     box-shadow: 1px 0px 8px var(--color-red-2);
 }

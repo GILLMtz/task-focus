@@ -26,8 +26,14 @@ function start(taskId){
     const taskToStarting =  task.get(taskId);
     task.setState(taskToStarting.id, TaskStates.STARTING); 
     
-    panelTime.updateName(taskToStarting.name);
-    stateHandler.setCurrentTask(taskToStarting.id,taskToStarting.name);
+    /* panelTime.updateName(taskToStarting.name); */
+
+    panelTime.updateProcess(taskToStarting);
+
+    stateHandler.setCurrentTask(taskToStarting);
+
+ 
+
     stateHandler.setTypeCurrentProcess(ProcessType.TASK);
     panelTime.counting(taskToStarting.time)
         .then(()=>stop())
@@ -54,13 +60,17 @@ function pause(){
     task.updateTime(minutes,seconds,stateHandler.getIdCurrentTask());
     task.setState(stateHandler.getIdCurrentTask(), TaskStates.RESUME);
     render.viewTasks();
+
+    panelTime.updateProcess(stateHandler.getCurrentTask() );
+
     stateHandler.reset();
 }
 
 function remove(taskId){
     panelTime.stopCounter(stateHandler.getIdCurrentProcess());
     task.removeById(taskId);
-    panelTime.updateName("");
+    panelTime.updateProcess(null,false);
+  /*   panelTime.updateName(""); */
     task.empty()?render.addExampleTasks():render.viewTasks();
     panelTime.updateTime(25, 0);      
     stateHandler.reset();
@@ -69,6 +79,7 @@ function remove(taskId){
 function stop(){
    return new Promise((resolve,reject)=>{
        task.setState(stateHandler.getIdCurrentTask(), TaskStates.SUCCESSFUL);
+       panelTime.updateProcess(stateHandler.getCurrentTask());
        stateHandler.reset();
        render.viewTasks();
 

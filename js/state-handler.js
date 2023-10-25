@@ -30,14 +30,11 @@ function getIdCurrentTask(){
     return appState.currentTask.id;
 
 }
-function setIdCurrentTask(id){
-     appState.currentTask.id=id;
 
-}
 
-function setCurrentTask(id,name){
-    appState.currentTask.id=id;
-    appState.currentTask.name=name;
+function setCurrentTask(currentTask){
+    if(!currentTask) return;
+    appState.currentTask=currentTask;
 }
 
 function reset(){
@@ -65,8 +62,12 @@ function setCurrentTheme(theme){
 }
 function getCurrentTheme(){
     return appState.currentTheme;
-
 }
+
+function getCurrentTask(){
+    return appState.currentTask;
+}
+
 export default {
     setCurrentProcess,
     getIdCurrentProcess,
@@ -75,10 +76,10 @@ export default {
     setTypeCurrentProcess,
     isAnyProcessRunning,
     getIdCurrentTask,
-    setIdCurrentTask,
     setCurrentTask,
     reset,
     toggleTheme,
     setCurrentTheme,
     getCurrentTheme
+    ,getCurrentTask
 };

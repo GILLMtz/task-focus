@@ -94,9 +94,17 @@ export const inputTask = document.getElementById('inputTask');
 export const btnAddTask = document.getElementById('btnAdd');
 export const taskSectionElement=document.querySelector('.tasks-section');
 export const ulTasksList = document.querySelector(".tasks-list");
-export const timePanel = document.querySelector('.panel-time__value');
-export const timePanelProcessName = document.querySelector('.panel-time__name-process');
-export const btnPausePanelTime = document.querySelector('.panel-time__button-pause');
+
+export const timePanel=document.querySelector('.panel-time');
+
+export const timePanelValue = document.querySelector('.panel-time__value');
+
+export const timePanelProcess=document.querySelector('.panel-time__process');
+
+
+/* export const btnPausePanelTime = document.querySelector('.panel-time__button-pause'); */
+
+
 export const bodyElement=document.querySelector('body');
 export const titlePage=document.querySelector('.title');
 export const mainContainer=document.querySelector('main');

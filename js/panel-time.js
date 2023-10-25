@@ -1,17 +1,21 @@
-import { timePanelProcessName, STEP, timePanel} from "./constantes.js";
+import {  STEP, timePanelValue} from "./constantes.js";
  import stateHandler from "./state-handler.js";
+ import render from "./render.js";
 
 
 function getTime() {
-    let [minutes, seconds] = timePanel.innerText.split(':');
+    let [minutes, seconds] = timePanelValue.innerText.split(':');
     minutes = minutes[0] == '0' ? minutes[1] : minutes;
     seconds = seconds[0] == '0' ? seconds[1] : seconds;
     return { minutes, seconds };
 }
-function updateName(name) { timePanelProcessName.innerText = name; }
+
+ function updateProcess(process,isActive) {
+    render.viewProcess(process,isActive);
+} 
 
 function updateTime(minutes, seconds) {
-    timePanel.innerHTML = `${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
+    timePanelValue.innerHTML = `${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
 }
 
 function stopCounter(countingProcessId){
@@ -38,4 +42,4 @@ function counting({minutes, seconds}) {
 
 }
 
-export default { updateTime, updateName, getTime,counting,stopCounter };
+export default { updateTime,   getTime,counting,stopCounter, updateProcess };
