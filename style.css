@@ -65,6 +65,8 @@
     --background__tasks-section: none;
     --background__tasks-section-btn: none;
 
+    --box-shadow__tasks-section-btn:0px -9px 7px #dadada3d;
+
 
     /* Task Form */
     --border-bottom__task-form-add: 1px solid var(--color-black);
@@ -130,6 +132,7 @@ body {
     background-image: var(--background-image__app);
     background-repeat: no-repeat;
     position: relative;
+    height: 100%;/* proof */
 }
 
 body::after {
@@ -146,8 +149,9 @@ body::after {
 
 @media screen and (max-width:950px) {
     html {
-        min-height: 100vh;
-        height: auto;
+/*         min-height: 100vh;
+        height: auto; */
+        overflow: hidden;
     }
 
     body {
@@ -235,7 +239,7 @@ Themes
     --background__tasks-section: var(--background__app);
     --background__tasks-section-btn: none;
 
-
+    --box-shadow__tasks-section-btn:0px -9px 7px #b9b6cb3d;
     /* Task List */
     --background__task-list--empty: #bebebe0d;
     --background__task-list--empty-icon: #6f6d6d;
@@ -376,9 +380,10 @@ header {
 
 @media screen and (max-width:576px) {
     .container {
-        min-height: 100vh;
+       /*  min-height: 100vh; */
         display: block;
         position: relative;
+        height: 100%;
     }
 }
 
@@ -425,6 +430,7 @@ Task Section
 --------------*/
 .tasks-section {
     background: none;
+
 }
 
 .tasks-section::after {
@@ -442,6 +448,32 @@ Task Section
     display: none;
     background: var(--background__tasks-section-btn);
 }
+
+.tasks-section__btn.btn {
+    border: none;
+    border-radius: 4px;
+    padding: 5px 20px;
+    line-height: 2em;
+    background: var(--background__panel-time);
+    color: var(--font-color__app);
+    cursor: pointer;
+    box-shadow: var(--box-shadow__tasks-section-btn);
+}
+
+.tasks-section__btn.btn:hover:not([disabled]) {
+  /*   box-shadow: 1px 0px 4px var(--color-dark-blue-2); */
+  box-shadow: var(--box-shadow__tasks-section-btn);
+}
+ 
+
+.tasks-section__btn.btn:active:not([disabled]) {
+ 
+    background: none;
+    box-shadow: var(--box-shadow__tasks-section-btn);
+}
+
+ 
+
 
 /* Form  */
 .tasks-form {
@@ -601,7 +633,7 @@ body .task-card.task-card--current-no-active div button{
         bottom: 0px;
         left: 0px;
         z-index: 1;
-        height: 16vh;
+        height: 13vh;
         width: 100%;
         overflow: hidden;
         box-sizing: border-box;
@@ -618,7 +650,7 @@ body .task-card.task-card--current-no-active div button{
 
     .tasks-section {
         margin-top: 0px;
-        padding-top: 0px;
+        padding-top: 1.7%;
     }
 
     .tasks-section.up-section {
@@ -643,39 +675,46 @@ body .task-card.task-card--current-no-active div button{
         font-size: 6.564vw;
     }
 
-    .tasks-section .tasks-section__btn {
-        display: block;
-        padding: 0% 4% 0px 4%;
-    }
 
-    .tasks-section .tasks-section__btn button {
+    
+
+
+   /*  .tasks-section .tasks-section__btn {
+        display: block;
+        
+    } */
+
+    .tasks-section .tasks-section__btn  {
+        width: 100%;
         display: flex;
         font-size: 2em;
         justify-content: center;
         align-items: center;
+        background: inherit;
+        color: inherit;
     }
 
-    .tasks-section .tasks-section__btn button svg {
+    .tasks-section .tasks-section__btn  svg {
         height: 1.2em;
         width: 1.2em;
     }
 
-    .tasks-section .tasks-section__btn button {
+    .tasks-section .tasks-section__btn {
         margin: auto;
         line-height: 1em;
-        padding: 15px 20px 15px 20px;
+/*         padding: 15px 20px 15px 20px; */
         transition: var(--trasition__tasks-section-btn);
     }
 
 
 
-    .tasks-section:not(.up-section) .tasks-section__btn button {
+ /*    .tasks-section:not(.up-section) .tasks-section__btn button {
         border-radius: 40% 40% 0px 0px;
-    }
+    } */
 
-    .tasks-section.up-section .tasks-section__btn button {
+/*     .tasks-section.up-section .tasks-section__btn button {
         border-radius: 0px 0px 40% 40%;
-    }
+    } */
 
     .tasks-section.up-section .tasks-section__btn {
         background: var(--background__tasks-section-btn);
@@ -775,7 +814,7 @@ Components
     margin: 0px;
 }
 
-.panel-time__button-pause {
+/* .panel-time__button-pause {
     margin: auto;
     display: block;
     padding: 1% 12%;
@@ -786,7 +825,7 @@ Components
     text-align: center;
     font-size: 2em;
     margin: 2%;
-}
+} */
 
 
 
@@ -795,10 +834,10 @@ Components
         width: 80%;
     }
 
-    .panel-time__name-process {
+/*     .panel-time__name-process {
         font-size: 1.2em;
         font-weight: 300;
-    }
+    } */
 }
 
 @media screen and (max-width:576px) {
@@ -876,6 +915,7 @@ Components
     background: var(--color-red-3);
     box-shadow: 1px 0px 8px var(--color-red-2);
 }
+
 
 /* Modal*/
 

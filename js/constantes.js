@@ -108,7 +108,7 @@ export const timePanelProcess=document.querySelector('.panel-time__process');
 export const bodyElement=document.querySelector('body');
 export const titlePage=document.querySelector('.title');
 export const mainContainer=document.querySelector('main');
-export const btnSetStateTasksSection=document.querySelector('.tasks-section__btn button');
+export const btnSetStateTasksSection=document.querySelector('.tasks-section__btn');
 export const btnSetTheme=document.querySelector('.btn-set-theme');
 
 export const tasks = [];
