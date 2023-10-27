@@ -1,50 +1,60 @@
-import { Themes, bodyElement, btnAddTask,btnSetTheme, taskSectionElement} from './constantes.js';
+import {btnAddTask } from './constantes.js';
 import actions from './actions.js';
-import stateHandler from './state-handler.js';
-import utils from './utils.js';
+ 
+
+const Actions={
+
+    START:{name:"start",idClass:"btn-task-timer",id:null},
+    PAUSE:{name:"pause",idClass:"btn-task-pause",id:null},
+    REMOVE:{name:"delete",idClass:"btn-task-delete",id:null},
+    ADD :{name:"add",idClass:null,id:btnAddTask.id},
+    SET_THEME:{name:"set-theme",idClass:"btn-set-theme",id:null},
+    UP_TASK_SECTION:{name:"up-task-section",idClass:"tasks-section__btn",id:null},
+
+};
 
 
+function runAction(target,action){
+    return target.classList.contains(action.idClass) ||
+    (target.parentNode && target.parentNode.classList.contains(action.idClass)) ||
+    ( action.id && target.id  && target.id==action.id) ;
+    
+} 
+
+function getBtnActionElement(target,idClass){
+    return target.classList.contains(idClass)?target:target.parentNode;
+}
 export default function events(){
     document.querySelector('body').addEventListener("click", (event) => {
         event.preventDefault();
         let { target } = event;
-    
-        if (target.id === btnAddTask.id) {
+        console.log(event.target);
+
+        if (runAction(target,Actions.ADD)) {
             actions.add();
             return;
         }
-        if (target.classList.contains("btn-task-timer")) {
-            actions.start(event);
-/*             const btnChange=target.parentNode.classList.contains('btn-task-timer')?target.parentNode:target;
-            utils.switchBtnStartPause(btnChange,"start"); */
+        if (runAction(target,Actions.START)) {
+            actions.start(getBtnActionElement(target,Actions.START.idClass));
             return;
         }
     
-        if (target.classList.contains("btn-task-delete")) {
-            actions.remove(event);
+        if (runAction(target,Actions.REMOVE)) {
+            actions.remove(getBtnActionElement(target,Actions.REMOVE.idClass));
             return;
         }
-        if (target.classList.contains('btn-task-pause')) {
+        if (runAction(target,Actions.PAUSE)) {
             actions.pause();
-/*             const btnChange=target.parentNode.classList.contains('btn-task-pause')?target.parentNode:target;
-            utils.switchBtnStartPause(btnChange,"pause"); */
             return;
         }    
-        if (target.classList.contains('btn-set-theme')) {
-             stateHandler.toggleTheme();
-             utils.switchBtnTheme();
+        if (runAction(target,Actions.SET_THEME)) {
+            actions.switchAppTheme();
             return;
         }
-        if(target.parentNode&&target.parentNode.classList.contains('tasks-section__btn')){
-            taskSectionElement.classList.toggle('up-section');
-            bodyElement.classList.toggle('up-tasks-section');
-            utils.setBtnUpTasksSection();
+        if(runAction(target,Actions.UP_TASK_SECTION)){
+            actions.upTaskSection();
             return;
         }
-        console.log(event.target);
     });
- 
- 
-
 }
 

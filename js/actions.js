@@ -1,7 +1,7 @@
-import { inputTask } from './constantes.js';
+import { inputTask,taskSectionElement,  bodyElement } from './constantes.js';
 import actionHandler from './action-handler.js';
 import stateHandler from './state-handler.js';
-
+import utils from './utils.js';
 function add() {
     if (inputTask.value == "") { return; }
     if (actionHandler.canTaskBeAdded(inputTask.value)) { 
@@ -11,10 +11,9 @@ function add() {
     actionHandler.add(inputTask.value);
 }
 
-function start(event) {
+function start(target) {
     if(stateHandler.isAnyProcessRunning()){return ;}
-   
-    const taskId = event.target.parentElement.parentElement.dataset.id;
+    const taskId = target.parentElement.parentElement.dataset.id;
     actionHandler.start(taskId);
 }
 
@@ -24,10 +23,20 @@ function pause() {
     return ;
 }
 
-function remove({target}) {   
-    let taskId= !stateHandler.isAnyProcessRunning()
-    ?target.parentElement.parentElement.dataset.id:stateHandler.getIdCurrentTask();
-    actionHandler.remove(taskId);    
+function remove(target) {   
+    const taskId=!stateHandler.isAnyProcessRunning()?target.parentElement.parentElement.dataset.id:stateHandler.getIdCurrentTask();
+    actionHandler.remove(taskId);
 }
 
-export default {add,start,pause,remove};
+function switchAppTheme() {
+    stateHandler.toggleTheme();
+    utils.switchBtnTheme();
+}
+
+function upTaskSection(){
+    taskSectionElement.classList.toggle('up-section');
+    bodyElement.classList.toggle('up-tasks-section');
+    utils.setBtnUpTasksSection();
+}
+
+export default {add,start,pause,remove,switchAppTheme,upTaskSection};

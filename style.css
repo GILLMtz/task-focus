@@ -581,11 +581,11 @@ body:not(.up-tasks-section) .task-card--current{
 
 }
 
-body:not(.up-tasks-section) .task-card--current-no-active{
-opacity: 0.2;
+body .task-card--current-no-active{
+opacity: 0.5;
 }
 
-body:not(.up-tasks-section) .task-card.task-card--current-no-active div button{
+body .task-card.task-card--current-no-active div button{
     pointer-events: none;
     }
 
