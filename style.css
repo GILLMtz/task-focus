@@ -148,17 +148,22 @@ body::after {
 }
 
 @media screen and (max-width:950px) {
-    html {
-/*         min-height: 100vh;
-        height: auto; */
-        overflow: hidden;
-    }
+/*     html {
+         min-height: 100vh;
+        height: auto; 
+         overflow: hidden; 
+    } */
 
     body {
         display: block;
     }
 }
 
+@media screen and (max-width:576px) {
+     html {
+         overflow: hidden; 
+    } 
+}
 /* @media screen and (max-width:576px) {
     body {
         display: block;
