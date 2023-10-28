@@ -433,7 +433,7 @@ Task Section
 
 }
 
-.tasks-section::after {
+/* .tasks-section::after {
     position: absolute;
     content: "";
     z-index: -1;
@@ -442,7 +442,7 @@ Task Section
     background: var(--background__tasks-section);
     background-image: var(--background-image__app);
     display: none;
-}
+} */
 
 .tasks-section__btn {
     display: none;
@@ -635,7 +635,7 @@ body .task-card.task-card--current-no-active div button{
         z-index: 1;
         height: 13vh;
         width: 100%;
-        overflow: hidden;
+   /*      overflow: hidden; */
         box-sizing: border-box;
         border-radius: 3% 3% 0px 0px;
 
@@ -643,10 +643,10 @@ body .task-card.task-card--current-no-active div button{
         flex-direction: column;
         transition: var(--transition__tasks-section);
     }
-
+/* 
     .tasks-section::after {
         display: block;
-    }
+    } */
 
     .tasks-section {
         margin-top: 0px;
