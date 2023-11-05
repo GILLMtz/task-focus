@@ -5,10 +5,10 @@ import actionHandler from "./action-handler.js";
 App.init();
 
 function mock() {
-    const nTasks = 20;
-    for (let i = 0; i <= nTasks; i++) {
+    const nTasks = 100;
+    for (let i = 1; i <= nTasks; i++) {
         inputTask.value=`Task ${i}`;
         actionHandler.add(inputTask.value);
     }
 }
-mock();
+//mock();

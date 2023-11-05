@@ -17,8 +17,8 @@ const Actions={
 function runAction(target,action){
     return target.classList.contains(action.idClass) ||
     (target.parentNode && target.parentNode.classList.contains(action.idClass)) ||
+    (target.parentNode && target.parentNode.id && target.parentNode.id==action.id) ||
     ( action.id && target.id  && target.id==action.id) ;
-    
 } 
 
 function getBtnActionElement(target,idClass){

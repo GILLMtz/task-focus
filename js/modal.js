@@ -1,4 +1,5 @@
 import { bodyElement ,mainContainer} from "./constantes.js";
+import utils from "./utils.js";
 const idSectionModalElement ="modalElement";
 const BACKGROUND_FILTER='filter:blur(10px)';
 const BACKGROUND_NO_FILTER='filter:none';
@@ -8,7 +9,7 @@ const ModalType={
     NOTIFICATION:"modal--as-notification"
 };
 
-function createModal({message,title,description},modalType=ModalType.DEFAULT){
+ function createModal({message,title,description},modalType=ModalType.DEFAULT){
     
     let sectionEl=document.createElement("section");
     sectionEl.classList.add("modal",modalType);
@@ -36,7 +37,11 @@ function createModal({message,title,description},modalType=ModalType.DEFAULT){
 
     sectionEl.appendChild(mainContentEl);
     return sectionEl;
-}
+} 
+
+ 
+
+
 
 function setBackground(background=true){
     if(background){
@@ -56,7 +61,14 @@ function updateMessageEl(messageEl,value){
     if(messageEl){ messageEl.innerHTML=value;}
 }
 function addOnView(content,modalType=ModalType.DEFAULT){
-    bodyElement.append(createModal(content,modalType))  ;
+
+    mainContainer.insertBefore(createModal(content,modalType),mainContainer.childNodes[0]);
+    bodyElement.classList.add("show-modal");
+
+/*     bodyElement.append(createModal(content,modalType))  ; */
+
+
+
     if(modalType!==ModalType.NOTIFICATION){
         setBackground();
     }
@@ -64,8 +76,11 @@ function addOnView(content,modalType=ModalType.DEFAULT){
 function removeOnView(counterReference){
     clearInterval(counterReference);
      let deleteEl=document.querySelector("#"+idSectionModalElement);
-     bodyElement.removeChild(deleteEl );
+     mainContainer.removeChild(deleteEl );
      setBackground(false);
+         bodyElement.classList.remove("show-modal");
+    
+
 }
 
 /* function counting(counterMin,counterMax){

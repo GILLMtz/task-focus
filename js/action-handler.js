@@ -49,7 +49,7 @@ function start(taskId){
             }
             return;
         })
-        .catch(()=>{console.log("Error")});        
+        .catch((error)=>{console.log("Error",error)});        
      
     render.viewTasks();    
 }
