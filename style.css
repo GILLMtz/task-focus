@@ -57,6 +57,12 @@
     --background__btn-set-theme-dark-mode: none;
     --background-image__btn-set-theme-dark-mode: var(--background__app-theme-dark-mode);
     --font-color__btn-set-theme-dark-mode: var(--color-gray-1);
+
+
+    /* Containers */
+    --max-width__container: 1500px;
+
+
     /* Task Section */
 
     --transition__tasks-section: height 0.5s ease;
@@ -125,7 +131,8 @@ html {
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+   /*  font-family: 'Roboto', sans-serif; */
+   font-family: 'Inter', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -358,6 +365,7 @@ App Section
     flex: auto;
     justify-content: center;
     align-items: center;
+    max-width: var(--max-width__container);
 }
 
 
@@ -475,6 +483,13 @@ header {
 .title svg {
     height: 1em;
     width: 1em;
+}
+
+@media screen and (min-width :1200px) {
+    .title {
+        font-size: 3.8em;
+    
+    }
 }
 
 
