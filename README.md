@@ -1,6 +1,6 @@
 <div align="center">
 
-![logo](./assets-docs/logo.svg)
+![logo](./media/logo.svg)
 
 [![JavaScript](https://img.shields.io/badge/Vanilla_Js-yellow)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
  [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/) 
@@ -33,26 +33,25 @@ Description: **Task Focus** is an intuitive and easy-to-use app designed to help
 
 
 ## Usage/Examples
-### Add tasks
 
-![Texto alternativo](/assets-docs/home-dark.png)
+![Texto alternativo](/media/run-with-config-file.gif)
  
 
 
 ## Modes
 
 ### Dark Mode
-![Texto alternativo](/assets-docs/home-dark.png)
+![Texto alternativo](/media/home-dark.webp)
 
 ### Light Mode
-![Texto alternativo](/assets-docs/home-light-mode.png)
+![Texto alternativo](/media/home-light-mode.webp)
  
  
 ## Mobile version
 <div style="display:flex;  justify-content: space-between;">
 
-<img src="./assets-docs/home-dark-mode-mobile.png" style="  height: 550px;  " />
-<img src="./assets-docs/home-light-mode-movbile.png" style="  height: 550px;" />
+<img src="./media/home-dark-mode-mobile.webp" style="  height: 550px;  " />
+<img src="./media/home-light-mode-movbile.webp" style="  height: 550px;" />
 
 </div>
 
