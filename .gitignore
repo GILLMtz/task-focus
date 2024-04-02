@@ -1,3 +1,5 @@
 assets-docs/
 /media/*
 !/media/*.webp
+!/media/*.svg
+!/media/*.gif
